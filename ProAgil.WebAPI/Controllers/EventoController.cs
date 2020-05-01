@@ -7,11 +7,11 @@ using ProAgil.Repository;
 
 namespace ProAgil.WebAPI.Controllers
 {
-    [ApiController]
     [Route("api/[controller]")]
+    [ApiController]
     public class EventoController : ControllerBase
     {
-        public IProAgilRepository _repo { get; }
+        private readonly IProAgilRepository _repo;
         public EventoController(IProAgilRepository repo)
         {
             _repo = repo;
@@ -20,15 +20,15 @@ namespace ProAgil.WebAPI.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            try 
+            try
             {
-                var results = await _repo.GetAllEventoAsync(true);
+                var results = await _repo.GetAllEventoAsync(false);
 
                 return Ok(results);
             } 
-            catch(Exception) 
+            catch(Exception ex) 
             {
-                return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de dados falhou");
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de dados falhou. " + ex.Message);
             }
         }
 

@@ -116,7 +116,7 @@ namespace ProAgil.Repository.Migrations
 
                     b.HasIndex("PalestranteId");
 
-                    b.ToTable("RedeSocials");
+                    b.ToTable("RedeSociais");
                 });
 
             modelBuilder.Entity("ProAgil.Domain.Lote", b =>
@@ -124,8 +124,7 @@ namespace ProAgil.Repository.Migrations
                     b.HasOne("ProAgil.Domain.Evento", "Evento")
                         .WithMany("Lotes")
                         .HasForeignKey("EventoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("ProAgil.Domain.PalestranteEvento", b =>
@@ -133,14 +132,12 @@ namespace ProAgil.Repository.Migrations
                     b.HasOne("ProAgil.Domain.Evento", "Evento")
                         .WithMany("PalestrantesEventos")
                         .HasForeignKey("EventoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("ProAgil.Domain.Palestrante", "Palestrante")
                         .WithMany("PalestrantesEventos")
                         .HasForeignKey("PalestranteId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("ProAgil.Domain.RedeSocial", b =>
