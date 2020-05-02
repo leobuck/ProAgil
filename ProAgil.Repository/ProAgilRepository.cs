@@ -79,15 +79,15 @@ namespace ProAgil.Repository
         public async Task<Evento> GetEventoAsyncById(int EventoId, bool includePalestrantes)
         {
             IQueryable<Evento> query = _context.Eventos
-                .Include(c => c.Lotes)
-                .Include(c => c.RedesSociais);
+                .Include(c => c.Lotes);
+                // .Include(c => c.RedesSociais);
 
-            if (includePalestrantes)
-            {
-                query = query
-                    .Include(pe => pe.PalestrantesEventos)
-                    .ThenInclude(p => p.Palestrante);
-            }
+            // if (includePalestrantes)
+            // {
+            //     query = query
+            //         .Include(pe => pe.PalestrantesEventos)
+            //         .ThenInclude(p => p.Palestrante);
+            // }
 
             query = query.AsNoTracking()
                 .OrderByDescending(c => c.DataEvento)
