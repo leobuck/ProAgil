@@ -10,7 +10,10 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ToastrModule } from 'ngx-toastr';
+import { NgxMaskModule } from 'ngx-mask-2';
+import { NgxCurrencyModule } from 'ngx-currency';
 import { AppRoutingModule } from './app-routing.module';
 
 import { EventoService } from './_services/evento.service';
@@ -22,6 +25,7 @@ import { PalestrantesComponent } from './palestrantes/palestrantes.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ContatosComponent } from './contatos/contatos.component';
 import { TituloComponent } from './_shared/titulo/titulo.component';
+import { EventoEditComponent } from './eventos/eventoEdit/eventoEdit.component';
 
 import { DateTimeFormatPipePipe } from './_helps/DateTimeFormatPipe.pipe';
 import { UserComponent } from './user/user.component';
@@ -38,6 +42,7 @@ import { UserComponent } from './user/user.component';
       UserComponent,
       LoginComponent,
       RegistrationComponent,
+      EventoEditComponent,
       DateTimeFormatPipePipe
    ],
    imports: [
@@ -47,7 +52,10 @@ import { UserComponent } from './user/user.component';
       BsDatepickerModule.forRoot(),
       TooltipModule.forRoot(),
       ModalModule.forRoot(),
+      TabsModule.forRoot(),
       ToastrModule.forRoot(),
+      NgxMaskModule.forRoot(),
+      NgxCurrencyModule,
       AppRoutingModule,
       HttpClientModule,
       FormsModule,

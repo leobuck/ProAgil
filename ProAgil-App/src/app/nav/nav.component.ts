@@ -31,4 +31,8 @@ export class NavComponent implements OnInit {
     localStorage.removeItem('token');
     this.router.navigate(['/user/login']);
   }
+
+  userName() {
+    return sessionStorage.getItem('username');
+  }
 }
