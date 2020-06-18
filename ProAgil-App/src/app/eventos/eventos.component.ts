@@ -91,11 +91,11 @@ export class EventosComponent implements OnInit {
     this.getEventos();
   }
 
-  filtrarEventos(filtrarPor: string): Evento[] {
+  filtrarEventos(filtrarPor: string) {
     filtrarPor = filtrarPor.toLocaleLowerCase();
-    return this.eventos.filter(
-      evento => evento.tema.toLocaleLowerCase().indexOf(filtrarPor) !== -1
-    );
+    return this.eventos.filter(evento => {
+      return evento.tema.toLocaleLowerCase().includes(filtrarPor);
+    });
   }
 
   alternarImagem() {
